@@ -1,5 +1,5 @@
 # wpdev-jumpstart-script
-A bash script that utilizes WP-CLI to configure a fresh Varying Vagrant Vagrants dev site install (I'm currently using https://github.com/aliso/vvv-site-wizard) and prepare my starter child theme.
+A bash script that utilizes WP-CLI to configure a fresh Varying Vagrant Vagrants dev site install (I'm currently using https://github.com/aliso/vvv-site-wizard) and prepare my starter Genesis child theme.
 **I'm still working on this, but feel free to take it and customize it for your own development workflow.**
 ## What the script does, in a nutshell
 *Currently...*
