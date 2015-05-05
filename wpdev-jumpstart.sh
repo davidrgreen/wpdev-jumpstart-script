@@ -27,7 +27,7 @@ VirtualVagrantDir='/vagrant'
 # This is the directory holding your custom setup files
 # such as a starter theme and premium plugins that
 # can't be downloaded from the WP plugin repository
-CustomSetupFiles=~/Projects/_CustomWPSetup
+CustomSetupFiles=~/Dropbox/Web-Dev-Backup/_CustomWPSetup
 
 # Directory containing your starter theme, relative
 # to the CustomSetupFilesDir directory
@@ -89,7 +89,7 @@ sed -i '' "s/xchildthemenamex/${ThemeName}/g" ${VagrantDir}/www/${SiteDir}/htdoc
 
 # Now use find/replace to change the BrowserSync proxy in
 # the child theme's Gruntfile.js
-sed -i '' "s/xsiteaddressx/${ThemeDir}/g" ${VagrantDir}/www/${SiteDir}/htdocs/wp-content/themes/${ThemeDir}/Gruntfile.js
+sed -i '' "s/xsiteaddressx/${ThemeDir}/g" ${VagrantDir}/www/${SiteDir}/htdocs/wp-content/themes/${ThemeDir}/grunt/Gruntfile.js
 
 
 # Unzip our premium and personal plugins into the dev site
@@ -138,6 +138,10 @@ unzip ${CustomSetupFiles}/gravityforms.zip -d ${VagrantDir}/www/${SiteDir}/htdoc
 	wp plugin install tabify-edit-screen --activate
 	wp plugin install query-monitor --activate
 	wp plugin install wordpress-seo --activate
+	wp plugin install simple-image-widget --activate
+	wp plugin install genesis-columns-advanced --activate
+	wp plugin install widget-css-classes --activate
+	wp plugin install disable-emojis --activate
 	wp menu create 'Main Menu'
 	wp menu location assign 'Main Menu' primary
 	wp menu item add-post 'Main Menu' 3 --title='Home'
