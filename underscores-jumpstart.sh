@@ -81,13 +81,22 @@ cp -r ${CustomSetupFiles}/${StarterTheme} ${VagrantDir}/www/${SiteDir}/htdocs/wp
 mv ${VagrantDir}/www/${SiteDir}/htdocs/wp-content/themes/${StarterTheme} ${VagrantDir}/www/${SiteDir}/htdocs/wp-content/themes/${ThemeDir}
 
 # Use Perl to find/replace the name and functon prefixes in the theme
-sed -i '' "s/xthemex/${ThemeDir}/g" ${VagrantDir}/www/${SiteDir}/htdocs/wp-content/themes/${ThemeDir}/**/*.php
+#sed -i '' "s/xthemex/${ThemeDir}/g" ${VagrantDir}/www/${SiteDir}/htdocs/wp-content/themes/${ThemeDir}/**/*.php
+find ${VagrantDir}/www/${SiteDir}/htdocs/wp-content/themes/${ThemeDir} -wholename '*.php' -exec sed -i '' "s/xthemex/${ThemeDir}/g" {} \;
+find ${VagrantDir}/www/${SiteDir}/htdocs/wp-content/themes/${ThemeDir} -wholename '*.css' -exec sed -i '' "s/xthemex/${ThemeDir}/g" {} \;
 sed -i '' "s/xthemenamex/${ThemeName}/g" ${VagrantDir}/www/${SiteDir}/htdocs/wp-content/themes/${ThemeDir}/style.css
 sed -i '' "s/xthemenamex/${ThemeName}/g" ${VagrantDir}/www/${SiteDir}/htdocs/wp-content/themes/${ThemeDir}/assets/css/style.css
 
 # Now use find/replace to change the BrowserSync proxy in
 # the child theme's Gruntfile.js
 sed -i '' "s/xsiteaddressx/${ThemeDir}/g" ${VagrantDir}/www/${SiteDir}/htdocs/wp-content/themes/${ThemeDir}/Gruntfile.js
+
+
+##########################
+# remove this
+# #########################
+exit;
+##########################
 
 
 # Unzip node_modules.zip into the theme folder
