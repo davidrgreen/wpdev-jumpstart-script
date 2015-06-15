@@ -84,8 +84,10 @@ cp -r ${CustomSetupFiles}/${StarterTheme} ${VagrantDir}/www/${SiteDir}/htdocs/wp
 mv ${VagrantDir}/www/${SiteDir}/htdocs/wp-content/themes/${StarterTheme} ${VagrantDir}/www/${SiteDir}/htdocs/wp-content/themes/${ThemeDir}
 
 # Use Perl to find/replace the name and functon prefixes in the theme
-sed -i '' "s/xchildthemex/${ThemeDir}/g" ${VagrantDir}/www/${SiteDir}/htdocs/wp-content/themes/${ThemeDir}/*.php
+find ${VagrantDir}/www/${SiteDir}/htdocs/wp-content/themes/${ThemeDir} -wholename '*.php' -exec sed -i '' "s/xchildthemex/${ThemeDir}/g" {} \;
+find ${VagrantDir}/www/${SiteDir}/htdocs/wp-content/themes/${ThemeDir} -wholename '*.css' -exec sed -i '' "s/xchildthemex/${ThemeDir}/g" {} \;
 sed -i '' "s/xchildthemenamex/${ThemeName}/g" ${VagrantDir}/www/${SiteDir}/htdocs/wp-content/themes/${ThemeDir}/style.css
+sed -i '' "s/xchildthemenamex/${ThemeName}/g" ${VagrantDir}/www/${SiteDir}/htdocs/wp-content/themes/${ThemeDir}/assets/css/style.css
 
 # Now use find/replace to change the BrowserSync proxy in
 # the child theme's Gruntfile.js
