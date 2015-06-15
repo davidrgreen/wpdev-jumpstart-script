@@ -92,13 +92,6 @@ sed -i '' "s/xthemenamex/${ThemeName}/g" ${VagrantDir}/www/${SiteDir}/htdocs/wp-
 sed -i '' "s/xsiteaddressx/${ThemeDir}/g" ${VagrantDir}/www/${SiteDir}/htdocs/wp-content/themes/${ThemeDir}/Gruntfile.js
 
 
-##########################
-# remove this
-# #########################
-exit;
-##########################
-
-
 # Unzip node_modules.zip into the theme folder
 # This is to avoid using npm install which keeps giving me
 # buggy, updated versions of dependencies
